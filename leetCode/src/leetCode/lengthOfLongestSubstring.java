@@ -3,16 +3,19 @@ package leetCode;
 import java.util.HashSet;
 
 class lengthOfLongestSubstring {
-	
+
 	public static void main(String[] args) {
-		
-		Solution3 s = new Solution3();
-		int maxLength = s.lengthOfLongestSubstring("pwwkew");
-		System.out.println(	maxLength);
-		
-		
+
+		Solution1 s = new Solution1();
+		int maxLength = s.lengthOfLongestSubstring(" ");
+		System.out.println(maxLength);
+
+		System.out.println("---------------------------------");
+		Solution3 s2 = new Solution3();
+		maxLength = s2.lengthOfLongestSubstring(" ");
+		System.out.println(maxLength);
 	}
-	
+
 }
 
 //해시셋 (HashSet)
@@ -22,8 +25,7 @@ class lengthOfLongestSubstring {
  * 데이터가 해싱되어 나온 해시코드를 인덱스로 활용해 배열(버킷)에 할당하므로, 저장된 데이터의 순서를 파악하는건 불가능합니다.
  */
 
-class Solution3 {
-	
+class Solution1 {
 
 	public int lengthOfLongestSubstring(String s) {
 
@@ -50,7 +52,7 @@ class Solution3 {
 
 				mySet.remove(s.charAt(left));
 				left++;
-				
+
 			}
 
 		}
@@ -58,7 +60,33 @@ class Solution3 {
 		return max;
 
 	}
-	
-	
 
+}
+
+class Solution3 {
+
+	String target = "";
+	String maxStr = "";
+	int pos = 0;
+
+	public int lengthOfLongestSubstring(String s) {
+//6 //pwwkew
+		for (int i = 0; i < s.length(); i++) {
+
+			if (target.contains("" + s.charAt(i))) {
+
+				if (maxStr.length() < target.length())
+					maxStr = target;
+					target="";
+					i = pos++;
+			} else {
+				target += s.charAt(i);
+			}
+		}
+
+		if(target.length()>maxStr.length()) {maxStr = target;}
+		
+		return maxStr.length();
+
+	}
 }
