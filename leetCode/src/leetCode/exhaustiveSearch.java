@@ -5,9 +5,10 @@ public class exhaustiveSearch {
 	
 	
 	public static void main(String[] args) {
-		int[] arr = {1, 3, 6, 5, 2, 7, 9};
+		//int[] arr = {1, 3, 6, 5, 2, 7, 9};
 		//int[] arr = {1, 3, 6};
-		System.out.println(countSubArrSumOfX(arr, 9));
+		int[] arr = {2,4,1,4,5,6,7,1,8,9,4,1}; 
+		System.out.println(countSubArrSumOfX(arr, 5));
 		
 		
 	}
