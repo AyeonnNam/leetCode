@@ -30,12 +30,14 @@ class Solution1 {
 	public int lengthOfLongestSubstring(String s) {
 
 		// abcabcbb
+		
 		// length = 8
 
 		HashSet<Character> mySet = new HashSet<Character>();
-
+		//position
 		int left = 0;
 		int right = 0;
+		//최대 길이 
 		int max = 0;
 
 		while (right < s.length()) {
@@ -65,27 +67,31 @@ class Solution1 {
 
 class Solution3 {
 
-	String target = "";
-	String maxStr = "";
-	int pos = 0;
+	
 
 	public int lengthOfLongestSubstring(String s) {
-//6 //pwwkew
+		
+		String target = "";
+		String maxStr = "";
+		int pos = 0;
+		
 		for (int i = 0; i < s.length(); i++) {
 
 			if (target.contains("" + s.charAt(i))) {
 
 				if (maxStr.length() < target.length())
 					maxStr = target;
-					target="";
-					i = pos++;
+				target = "";
+				i = pos++;
 			} else {
 				target += s.charAt(i);
 			}
 		}
 
-		if(target.length()>maxStr.length()) {maxStr = target;}
-		
+		if (target.length() > maxStr.length()) {
+			maxStr = target;
+		}
+
 		return maxStr.length();
 
 	}
