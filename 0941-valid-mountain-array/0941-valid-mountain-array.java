@@ -7,7 +7,7 @@ class Solution {
       int right = arr.length-1;  // 3
       int left = 0;
       
-      //if(arr.length < 3) return false;
+      
         
        while(left < n-1 && arr[left]< arr[left + 1]) {
            left++; //1 
