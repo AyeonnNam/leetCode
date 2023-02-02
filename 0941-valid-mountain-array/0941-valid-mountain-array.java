@@ -7,7 +7,7 @@ class Solution {
       int right = arr.length-1;  // 3
       int left = 0;
       
-      if(arr.length < 3) return false;
+      //if(arr.length < 3) return false;
         
        while(left < n-1 && arr[left]< arr[left + 1]) {
            left++; //1 
@@ -16,7 +16,7 @@ class Solution {
        while(right>0 && arr[right] < arr[right-1]) {
            right--;
        }
-        if(right == 0 && left == 0 ) return false;
+       if(right == 0 && left == 0 ) return false;
        if(left != right) return  false;
        if(left == right && right == n-1 ) return false;
         return true;
